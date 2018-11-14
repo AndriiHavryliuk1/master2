@@ -1,9 +1,7 @@
-﻿using System;
-using MasterApriori.Contracts;
+﻿using MasterApriori.Contracts;
 using MasterApriori.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MasterApriori.Utils;
 
 namespace MasterApriori.Implementation
@@ -32,11 +30,12 @@ namespace MasterApriori.Implementation
 			minLift = value;
 		}
 
-		Output IApriori.ProcessTransaction(double minSupport, double minConfidence, IEnumerable<string> items, string[][] transactions, string[] itemsD = null)
+		Output IApriori.ProcessTransaction(float minSupport, float minConfidence, float minLift, IEnumerable<string> items, string[][] transactions, string[] itemsD = null)
 		{
 			this.minSupport = minSupport;
 			this.minConfidence = minConfidence;
 			this.transactionsCount = transactions.Length;
+			this.minLift = minLift;
 			IList<Item> frequentItems = GetL1FrequentItems(items, transactions);
 			ItemsDictionary allFrequentItems = new ItemsDictionary();
 			allFrequentItems.ConcatItems(frequentItems);

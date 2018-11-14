@@ -19,12 +19,8 @@ namespace MasterApriori.Utils
 			
 			foreach (var item in frequentItems)
 			{
-				var itemsStr = string.Join("", item.Names.OrderBy(x => x));
-				if (!addedItems.Any(x => x == itemsStr))
-				{
+				// var itemsStr = string.Join("", item.Names.OrderBy(x => x));
 					this.Add(item);
-					addedItems.Add(itemsStr);
-				}
 			}
 		}
 	}

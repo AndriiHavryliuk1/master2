@@ -67,17 +67,10 @@
     <Compile Include="Entities\Rule.cs" />
     <Compile Include="FileReader\FileReader.cs" />
     <Compile Include="Implementation\Apriori.cs" />
-    <Compile Include="ResultWindow.xaml.cs">
-      <DependentUpon>ResultWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Upload.xaml.cs">
-      <DependentUpon>Upload.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\DelegateCommand.cs" />
+    <Compile Include="Implementation\AprioriInThread.cs" />
+    <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\IndexedDictionary.cs" />
     <Compile Include="Utils\ObservableObject.cs" />
-    <Compile Include="Utils\Presenter.cs" />
-    <Compile Include="ViewModels\AprioriVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,14 +83,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ResultWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Upload.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -126,7 +111,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserControls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

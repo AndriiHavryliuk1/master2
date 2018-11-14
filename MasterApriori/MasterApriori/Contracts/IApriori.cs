@@ -7,6 +7,6 @@ namespace MasterApriori.Contracts
 	public interface IApriori
 	{
 		void SetMinLift(double value);
-		Output ProcessTransaction(double minSupport, double minConfidence, IEnumerable<string> items, string[][] transactions, string[] itemsD = null);
+		Output ProcessTransaction(float minSupport, float minConfidence, float minLift, IEnumerable<string> items, string[][] transactions, string[] itemsD = null);
 	}
 }

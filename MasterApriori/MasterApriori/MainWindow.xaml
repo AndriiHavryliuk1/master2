@@ -5,26 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterApriori"
         mc:Ignorable="d"
-        Title="Apriori" Height="391.775" Width="470.5">
+        Title="Apriori" Height="391.775" Width="479.5" ResizeMode="NoResize">
 	<Grid>
-		<RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="187" Margin="20,149,0,0" VerticalAlignment="Top" Width="415">
+		<RichTextBox x:Name="richTextBox" Margin="20,149,22,25" VerticalScrollBarVisibility="Auto">
 			<FlowDocument>
 				<Paragraph>
 					<Run Name="TextResult"/>
 				</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
-		<Button x:Name="uploadDataset" Content="Upload dataset" HorizontalAlignment="Left" Margin="20,18,0,0" VerticalAlignment="Top" Width="100" Height="34" Click="uploadDataset_Click"/>
-		<Button x:Name="uploadItems" Content="Upload items" HorizontalAlignment="Left" Margin="125,18,0,0" VerticalAlignment="Top" Width="100" Height="34" Click="uploadItems_Click"/>
-		<Button x:Name="verify" Content="Verify" HorizontalAlignment="Left" Margin="335,18,0,0" VerticalAlignment="Top" Width="100" Height="34"/>
-		<Button x:Name="process" Content="Process" HorizontalAlignment="Left" Margin="335,107,0,0" VerticalAlignment="Top" Width="100" Height="34" Click="process_Click"/>
-		<Label x:Name="label" Content="Min support: " HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Height="28"/>
-		<Label x:Name="label_Copy" Content="Min confidence: " HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Height="29"/>
-		<Label x:Name="label_Copy1" Content="Min lift: " HorizontalAlignment="Left" Margin="20,118,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="MinSupportTextBox" HorizontalAlignment="Left" Height="23" Margin="125,61,0,0" TextWrapping="Wrap" Text="0.4" VerticalAlignment="Top" Width="100"/>
-		<TextBox x:Name="MinConfidenceTextBox" HorizontalAlignment="Left" Height="23" Margin="125,89,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="100"/>
-		<TextBox x:Name="MinLiftTextBox" HorizontalAlignment="Left" Height="23" Margin="125,118,0,0" TextWrapping="Wrap"  Text="Not specified" VerticalAlignment="Top" Width="100"/>
-		<Button x:Name="uploadItemsD" Content="Upload Items D" HorizontalAlignment="Left" Margin="230,18,0,0" VerticalAlignment="Top" Width="100" Height="34" Click="uploadItemsD_Click"/>
+		<Button x:Name="uploadDataset" Content="Завантажити D" Margin="20,18,0,0" Click="uploadDataset_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
+		<Button x:Name="uploadItems" Content="Завантажити I" Margin="170,18,0,0" Click="uploadItems_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
+		<Button x:Name="process" Content="Розпочати" Margin="320,67,0,0" Click="process_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
+		<Label x:Name="label" Content="Мінімальна підтримка: " HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Height="28"/>
+		<Label x:Name="label_Copy" Content="Мінімальна достовірність: " HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Height="29"/>
+		<Label x:Name="label_Copy1" Content="Мінімальний ліфт: " HorizontalAlignment="Left" Margin="20,118,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="MinSupportTextBox" HorizontalAlignment="Left" Height="23" Margin="176,61,0,0" TextWrapping="Wrap" Text="0.4" VerticalAlignment="Top" Width="100"/>
+		<TextBox x:Name="MinConfidenceTextBox" HorizontalAlignment="Left" Height="23" Margin="176,90,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="100"/>
+		<TextBox x:Name="MinLiftTextBox" HorizontalAlignment="Left" Height="23" Margin="176,118,0,0" TextWrapping="Wrap"  Text="Не вказано" VerticalAlignment="Top" Width="100"/>
+		<Button x:Name="uploadItemsD" Content="Завантажити причини" Margin="320,18,0,0" Click="uploadItemsD_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
 
 	</Grid>
 </Window>

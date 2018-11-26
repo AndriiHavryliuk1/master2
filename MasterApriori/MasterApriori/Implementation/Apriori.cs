@@ -55,8 +55,6 @@ namespace MasterApriori.Implementation
 			return new Output
 			{
 				StrongRules = strongRules,
-				MaximalItemSets = null,
-				ClosedItemSets = null,
 				FrequentItems = allFrequentItems
 			};
 		}
@@ -114,15 +112,17 @@ namespace MasterApriori.Implementation
 					}
 
 
-					double support = GetSupport(generatedCandidate, transactions);
+					double support;
 					if (itemsD == null)
 					{
+						support = GetSupport(generatedCandidate, transactions);
 						candidates.Add(generatedCandidate, support);
 					}
 					else
 					{
 						if (itemsD.Any(itemD => generatedCandidate.Contains(itemD)))
 						{
+							support = GetSupport(generatedCandidate, transactions);
 							candidates.Add(generatedCandidate, support);
 						}
 					}
@@ -215,7 +215,7 @@ namespace MasterApriori.Implementation
 			double confidence = GetConfidence(rule.X, XY, allFrequentItems);
 			double lift = minLift > 0.0 ? GetLift(confidence, rule.Y, allFrequentItems) : 1;
 
-			if (confidence >= minConfidence)
+			if (confidence >= minConfidence && lift > minLift)
 			{
 				Rule newRule = new Rule(rule.X, rule.Y, confidence);
 				strongRules.Add(newRule);
@@ -235,7 +235,7 @@ namespace MasterApriori.Implementation
 		{
 			var Ystring = string.Join("", Y.OrderBy(x => x));
 			var supportY = allFrequentItems.FirstOrDefault(x => string.Join("", x.Names.OrderBy(k => k)) == Ystring).Support;
-			return XYConfidence / (supportY * this.transactionsCount);
+			return XYConfidence / (supportY / this.transactionsCount);
 		}
 	}
 }

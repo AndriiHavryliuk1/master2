@@ -1,0 +1,35 @@
+﻿<Window x:Class="MasterApriori.Windows.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MasterApriori.Windows"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        mc:Ignorable="d"
+        Title="Результати" Height="700" Width="1105.385">
+	<Grid>
+		<chartingToolkit:Chart Name="TimeChart" Loaded="TimeChart_OnLoaded" Title="Час виконання" Margin="551,375,45,10" >
+			<chartingToolkit:Chart.Series >
+
+				<chartingToolkit:ColumnSeries Title="Транзікції" IndependentValueBinding="{Binding Path=Transation}"			 
+				                           DependentValueBinding="{Binding Path=Seconds}"></chartingToolkit:ColumnSeries>
+			</chartingToolkit:Chart.Series>
+		</chartingToolkit:Chart>
+		<chartingToolkit:Chart x:Name="RulesChart" Loaded="RulesChart_OnLoaded" Title="Кількість знайденик правил" Margin="49,350,692,10" >
+
+			<chartingToolkit:PieSeries Title="" IndependentValueBinding="{Binding Transation}"				 
+				DependentValueBinding="{Binding RulesCount}"/>
+		</chartingToolkit:Chart>
+		<chartingToolkit:Chart x:Name="TransactionsChart" Loaded="TransactionsChart_OnLoaded" Title="Кількість транзікцій" Margin="551,35,45,350" >
+
+			<chartingToolkit:LineSeries Title="Транзікції" IndependentValueBinding="{Binding Transation}"				 
+				DependentValueBinding="{Binding TrasactionCount}"/>
+		</chartingToolkit:Chart>
+		<DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="49,35,0,0" VerticalAlignment="Top" Height="284" Width="453"
+		         >
+			
+		</DataGrid>
+
+	</Grid>
+</Window>
+

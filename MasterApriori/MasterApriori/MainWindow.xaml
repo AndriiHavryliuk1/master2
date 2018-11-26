@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterApriori"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="Apriori" Height="391.775" Width="479.5" ResizeMode="NoResize">
+        Title="Apriori" Height="410.775" Width="479.5" ResizeMode="NoResize">
 	<Grid>
-		<RichTextBox x:Name="richTextBox" Margin="20,149,22,25" VerticalScrollBarVisibility="Auto">
+		<RichTextBox x:Name="richTextBox" Margin="20,163,22,25" VerticalScrollBarVisibility="Auto">
 			<FlowDocument>
 				<Paragraph>
 					<Run Name="TextResult"/>
@@ -17,13 +18,15 @@
 		<Button x:Name="uploadDataset" Content="Завантажити D" Margin="20,18,0,0" Click="uploadDataset_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
 		<Button x:Name="uploadItems" Content="Завантажити I" Margin="170,18,0,0" Click="uploadItems_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
 		<Button x:Name="process" Content="Розпочати" Margin="320,67,0,0" Click="process_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
-		<Label x:Name="label" Content="Мінімальна підтримка: " HorizontalAlignment="Left" Margin="20,61,0,0" VerticalAlignment="Top" Height="28"/>
-		<Label x:Name="label_Copy" Content="Мінімальна достовірність: " HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Height="29"/>
-		<Label x:Name="label_Copy1" Content="Мінімальний ліфт: " HorizontalAlignment="Left" Margin="20,118,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="MinSupportTextBox" HorizontalAlignment="Left" Height="23" Margin="176,61,0,0" TextWrapping="Wrap" Text="0.4" VerticalAlignment="Top" Width="100"/>
-		<TextBox x:Name="MinConfidenceTextBox" HorizontalAlignment="Left" Height="23" Margin="176,90,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="100"/>
-		<TextBox x:Name="MinLiftTextBox" HorizontalAlignment="Left" Height="23" Margin="176,118,0,0" TextWrapping="Wrap"  Text="Не вказано" VerticalAlignment="Top" Width="100"/>
+		<Label x:Name="label" Content="Мінімальна підтримка: " HorizontalAlignment="Left" Margin="20,68,0,0" VerticalAlignment="Top" Height="28"/>
+		<Label x:Name="label_Copy" Content="Мінімальна достовірність: " HorizontalAlignment="Left" Margin="20,96,0,0" VerticalAlignment="Top" Height="29"/>
+		<Label x:Name="label_Copy1" Content="Мінімальний ліфт: " HorizontalAlignment="Left" Margin="20,125,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="MinSupportTextBox" HorizontalAlignment="Left" Height="23" Margin="176,68,0,0" TextWrapping="Wrap" Text="0.4" VerticalAlignment="Top" Width="100"/>
+		<TextBox x:Name="MinConfidenceTextBox" HorizontalAlignment="Left" Height="23" Margin="176,97,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="100"/>
+		<TextBox x:Name="MinLiftTextBox" HorizontalAlignment="Left" Height="23" Margin="176,125,0,0" TextWrapping="Wrap"  Text="Не вказано" VerticalAlignment="Top" Width="100"/>
 		<Button x:Name="uploadItemsD" Content="Завантажити причини" Margin="320,18,0,0" Click="uploadItemsD_Click" HorizontalAlignment="Left" Width="132" Height="36" VerticalAlignment="Top"/>
+		<Image x:Name="loadingGif" gif:ImageBehavior.AnimatedSource="Images/Loading_icon.gif" Margin="-195,149,-175,0" Visibility="Hidden"/>
+		<Button x:Name="button" Content="Результати" HorizontalAlignment="Left" Margin="320,113,0,0" VerticalAlignment="Top" Width="132" Click="button_Click" Height="36"/>
 
 	</Grid>
 </Window>

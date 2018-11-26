@@ -38,6 +38,47 @@ const SEASON_CONST = {
 	spring: "весна",
 }
 
+const RESIDENCE = {
+	city: "місто",
+	village: "село"
+}
+
+const EDUCATION = {
+	hight: "вища",
+	medium: "середня",
+	low: "нижча"
+}
+
+const YEAR_RELEASE = {
+	stage1: "1-5",
+	stage2: "6-10",
+	stage3: "11-15",
+	stage4: "16-20"
+}
+
+const OWNER = {
+	stage1: "власник 1",
+	stage2: "власник 2",
+	stage3: "власник 3",
+	stage4: "власник 4+"
+}
+
+const COUNT_OF_PASSANGER = {
+	stage1: "пасажир 0",
+	stage2: "пасажири 1",
+	stage3: "пасажири 2",
+	stage4: "пасажири 3",
+	stage5: "пасажири 4",
+	stage6: "пасажири 4+",
+}
+
+const COLOR = {
+	white: "білий",
+	black: "чорний",
+	red: "червоний",
+	green: "зелений",
+	yellow: "жовтий",
+}
 
 fs.writeFile(path.join(__dirname, 'transactions.txt'), generate(), (err) => {
        if (err) {
@@ -54,6 +95,12 @@ fs.writeFile(path.join(__dirname, 'transactions.txt'), generate(), (err) => {
 			result += `"${getAge()}"`;
 			result += `"${getAlco()}"`;
 			result += `"${getTime()}"`;
+			result += `"${getColor()}"`;
+			result += `"${getEducation()}"`;
+			result += `"${getCountOfPassanger()}"`;
+			result += `"${getOwner()}"`;
+			result += `"${getYearRelease()}"`;
+			result += `"${getResidence()}"`;
 			result += `"${getSeason()}"\r\n`;
 		}
 
@@ -134,5 +181,91 @@ fs.writeFile(path.join(__dirname, 'transactions.txt'), generate(), (err) => {
 			return SEASON_CONST.autumn;
 		} else {
 			return SEASON_CONST.spring
+		}
+	}
+
+
+	function getResidence() {
+		let number = Math.random() * 100;
+		
+		if (number <= 65) {
+			return RESIDENCE.city;
+		} else {
+			return RESIDENCE.village
+		}
+	}
+
+	function getEducation() {
+		let number = Math.random() * 100;
+		
+		if (number <= 25) {
+			return EDUCATION.hight;
+		} else if (number <= 60) {
+			return EDUCATION.medium
+		} else {
+			return EDUCATION.low;
+		}
+	}
+
+	function getYearRelease() {
+		let number = Math.random() * 100;
+		
+		if (number <= 15) {
+			return YEAR_RELEASE.stage1;
+		} else if (number <= 35) {
+			return YEAR_RELEASE.stage2;
+		} else if (number <= 70) {
+			return YEAR_RELEASE.stage3;
+		} else {
+			return YEAR_RELEASE.stage4;
+		}
+	}
+
+	function getColor() {
+		let number = Math.random() * 100;
+		
+		if (number <= 40) {
+			return COLOR.black;
+		} else if (number <= 82) {
+			return COLOR.white;
+		} else if (number <= 88) {
+			return COLOR.red;
+		} else if (number <= 94) {
+			return COLOR.yellow;
+		} else {
+			return COLOR.green;
+		}
+	}
+
+	function getOwner() {
+		let number = Math.random() * 100;
+		
+		if (number <= 20) {
+			return OWNER.stage1;
+		} else if (number <= 40) {
+			return OWNER.stage2;
+		} else if (number <= 70) {
+			return OWNER.stage3;
+		} else {
+			return OWNER.stage4;
+		}
+	}
+
+
+	function getCountOfPassanger() {
+		let number = Math.random() * 100;
+		
+		if (number <= 30) {
+			return COUNT_OF_PASSANGER.stage1;
+		} else if (number <= 50) {
+			return COUNT_OF_PASSANGER.stage2;
+		} else if (number <= 60) {
+			return COUNT_OF_PASSANGER.stage3;
+		} else if (number <= 70) {
+			return COUNT_OF_PASSANGER.stage4;
+		} else if (number <= 85) {
+			return COUNT_OF_PASSANGER.stage5;
+		} else {
+			return COUNT_OF_PASSANGER.stage6;
 		}
 	}

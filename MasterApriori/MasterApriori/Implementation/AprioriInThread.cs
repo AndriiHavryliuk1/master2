@@ -40,7 +40,7 @@ namespace MasterApriori.Implementation
 		// The thread procedure performs the task, such as
 		// formatting and printing a document, and then invokes
 		// the callback delegate with the number of lines printed.
-		public async Task<string> ThreadProc()
+		public async Task<Result> ThreadProc()
 		{
 			IApriori apriori = new Apriori();
 			var stopWatch = new Stopwatch();
@@ -48,25 +48,9 @@ namespace MasterApriori.Implementation
 			var result = apriori.ProcessTransaction((float)minSupport, (float)minConfidence, (float)minLift, items, transactions, itemsD);
 			stopWatch.Stop();
 
-			return GetResult(result, stopWatch);
-		}
 
-		private string GetResult(Output result, Stopwatch stopWatch)
-		{
-			var resultString = "Frequent items:\n";
-			foreach (var frequentItem in result.FrequentItems)
-			{
-				resultString += $"Name: { string.Join(" ", frequentItem.Names)}, Support: {frequentItem.Support}\n";
-			}
 
-			resultString += $"Found {result.StrongRules.Count} strong rules:\n";
-			foreach (var strongRule in result.StrongRules)
-			{
-				resultString += $"Rule: {{{string.Join(" ", strongRule.X)} -> {string.Join(" ", strongRule.Y)}}}, confidence: {strongRule.Confidence}\n";
-			}
-			resultString += $"Processing time: {stopWatch.Elapsed}\n";
-			resultString += $"All transactions: {transactions.Length}\n";
-			return resultString;
+			return new Result(result, stopWatch);
 		}
 	}
 }

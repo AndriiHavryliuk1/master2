@@ -25,10 +25,13 @@
 			<chartingToolkit:LineSeries Title="Транзікції" IndependentValueBinding="{Binding Transation}"				 
 				DependentValueBinding="{Binding TrasactionCount}"/>
 		</chartingToolkit:Chart>
-		<DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="49,35,0,0" VerticalAlignment="Top" Height="284" Width="453"
+		<DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="49,35,0,0" VerticalAlignment="Top" Height="284" Width="447"
 		         >
 			
 		</DataGrid>
+		<Menu x:Name="menu" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1087">
+			<Button Content="Зберегти"/>
+		</Menu>
 
 	</Grid>
 </Window>

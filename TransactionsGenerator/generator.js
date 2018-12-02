@@ -173,7 +173,7 @@ fs.writeFile(path.join(__dirname, 'transactions.txt'), generate(), (err) => {
 	function getSeason() {
 		let number = Math.random() * 100;
 		
-		if (number <= 35) {
+		if (number <= 42) {
 			return SEASON_CONST.winter;
 		} else if (number <= 55) {
 			return SEASON_CONST.summer;
@@ -198,9 +198,9 @@ fs.writeFile(path.join(__dirname, 'transactions.txt'), generate(), (err) => {
 	function getEducation() {
 		let number = Math.random() * 100;
 		
-		if (number <= 25) {
+		if (number <= 20) {
 			return EDUCATION.hight;
-		} else if (number <= 60) {
+		} else if (number <= 50) {
 			return EDUCATION.medium
 		} else {
 			return EDUCATION.low;

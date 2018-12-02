@@ -234,7 +234,7 @@ namespace MasterApriori.Implementation
 		private double GetLift(double XYConfidence, string[] Y, ItemsDictionary allFrequentItems)
 		{
 			var Ystring = string.Join("", Y.OrderBy(x => x));
-			var supportY = allFrequentItems.FirstOrDefault(x => string.Join("", x.Names.OrderBy(k => k)) == Ystring).Support;
+			var supportY = allFrequentItems.FirstOrDefault(x => string.Join("", x.Names.OrderBy(k => k)) == Ystring)?.Support ?? 999999999;
 			return XYConfidence / (supportY / this.transactionsCount);
 		}
 	}

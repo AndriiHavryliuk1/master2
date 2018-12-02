@@ -75,6 +75,11 @@ namespace MasterApriori
 
 		private async void process_Click(object sender, RoutedEventArgs e)
 		{
+			if (!Validation())
+			{
+				return;
+			}
+
 			loadingGif.Visibility = Visibility.Visible;
 			richTextBox.Visibility = Visibility.Hidden;
 			var minSupport = 0.4;
@@ -118,13 +123,21 @@ namespace MasterApriori
 		}
 
 
-		private bool ValidateItems()
+		private bool Validation()
 		{
-			if (transactions == null || transactions.Length == 0 || items == null || items.Length == 0)
+
+			if (transactions == null || transactions.Length == 0)
 			{
+				MessageBox.Show("Список транзакцій не завантажено!", "Помилка!");
+				return false;
+			}
+			if (items == null || items.Length == 0)
+			{
+				MessageBox.Show("Список характеристик не завантажено!", "Помилка!");
 				return false;
 			}
 			return true;
+
 		}
 
 		private void button_Click(object sender, RoutedEventArgs e)
